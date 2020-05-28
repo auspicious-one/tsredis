@@ -1,8 +1,12 @@
 import { RedisClient as Redis, ClientOpts } from "redis";
-import { ClientDefine, HandleOptions } from "./interface/GlobalInterface";
+import {
+  HashInterface,
+  KeyInterface,
+  HandleOptions
+} from "./interface/GlobalInterface";
 import { isObject } from "./utils/index";
 
-export default class RedisClient implements ClientDefine {
+export default class RedisClient implements HashInterface, KeyInterface {
   /** Redis 实例 */
   private redisClientInstance: Redis;
 
@@ -33,7 +37,6 @@ export default class RedisClient implements ClientDefine {
     this.isCheckResult = isCheckResult;
   }
 
-  /** 关于 Key 的处理 */
   set(key: string, value: string): Promise<"OK" | boolean> {
     return new Promise((resolve, reject) => {
       this.redisClientInstance.SET(key, value, (err, reply) => {
@@ -46,8 +49,6 @@ export default class RedisClient implements ClientDefine {
       });
     });
   }
-
-  /** 关于 Hash 表的处理 */
 
   setHashKey(hashKey: string) {
     this.hashKey = hashKey;
@@ -63,7 +64,6 @@ export default class RedisClient implements ClientDefine {
             this.isIgnoreReject ? resolve(false) : reject(err);
             return;
           }
-
           // 如果哈希表含有给定字段，返回 1 。
           // 如果哈希表不含有给定字段，或 key 不存在，返回 0 。
           resolve(this.isCheckResult ? reply === 1 : reply);
