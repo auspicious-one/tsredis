@@ -1,4 +1,4 @@
-# tsredis5
+# tsredis
 ## Redis Promise库，在原有官方Redis库的基础上，进行了 Promise 封装以及强类型定义。
 
 Remark：时间问题，就先写了3个方法接口，后续慢慢追加所有接口 😂

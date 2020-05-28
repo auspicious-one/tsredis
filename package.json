@@ -1,0 +1,30 @@
+{
+  "name": "tsredis5",
+  "version": "1.0.0",
+  "keywords": [
+    "database",
+    "redis",
+    "typescript",
+    "promise",
+    "es6",
+    "nodejs"
+  ],
+  "description": "Redis Promise库，在原有官方Redis库的基础上，进行了 Promise 封装以及强类型定义。",
+  "main": "index.js",
+  "scripts": {},
+  "author": "auspicious",
+  "license": "ISC",
+  "dependencies": {
+    "ts-node-dev": "^1.0.0-pre.44",
+    "@types/redis": "^2.8.21",
+    "redis": "^3.0.2",
+    "typescript": "^3.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lovefive5/tsredis.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lovefive5/tsredis/issues"
+  }
+}
